@@ -31,21 +31,21 @@ export default {
   },
   methods: {
     auth() {
-      axios
-        .post("https://boiling-garden-97099.herokuapp.com/api/register", {
-          name: this.name,
-          profile: this.profile,
-          email: this.email,
-          password: this.password
-        })
-        .then(response => {
-          console.log(response);
-          this.$router.replace("/");
-        })
-        .catch(error => {
-          alert(error);
-        });
-    }
+     axios
+       .post("http:/localhost:8000/api/register", { //リクエストURLはlaravelプロジェクトに対して（localhost:8000）
+         name: this.name,
+         profile: this.profile,
+         email: this.email,
+         password: this.password
+       })
+       .then(response => {
+         console.log(response); //こちらで結果の確認
+         this.$router.replace("/");
+       })
+       .catch(error => {
+         alert(error);
+       });
+   }
   }
 };
 </script>
