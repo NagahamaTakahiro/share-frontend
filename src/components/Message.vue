@@ -69,7 +69,7 @@ export default {
         });
       } else {
         axios
-          .post("http://localhost:8000/api/like", {
+          .post("https://boiling-garden-97099.herokuapp.com/api/like", {
             share_id: this.shares[index].item.id,
             user_id: this.$store.state.user.id,
           })
@@ -85,7 +85,7 @@ export default {
     del(index) {
       axios
         .delete(
-          "http://localhost:8000/api/shares/" +
+          "https://boiling-garden-97099.herokuapp.com/api/shares/" +
             this.shares[index].item.id
         )
         .then((response) => {
@@ -104,7 +104,7 @@ export default {
       for (let i = 0; i < shares.data.data.length; i++) {
         await axios
           .get(
-            "http://localhost:8000/api/shares/" +
+            "https://boiling-garden-97099.herokuapp.com/api/shares/" +
               shares.data.data[i].id
           )
           .then((response) => {
