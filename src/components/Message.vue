@@ -53,7 +53,7 @@ export default {
           if (element.user_id == this.$store.state.user.id) {
             axios({
               method: "delete",
-              url: "http://localhost:8000/api/like",
+              url: "https://fierce-lake-14215.herokuapp.com/api/like",
               data: {
                 share_id: this.shares[index].item.id,
                 user_id: this.$store.state.user.id,
@@ -69,7 +69,7 @@ export default {
         });
       } else {
         axios
-          .post("https://boiling-garden-97099.herokuapp.com/api/like", {
+          .post("https://fierce-lake-14215.herokuapp.com/api/like", {
             share_id: this.shares[index].item.id,
             user_id: this.$store.state.user.id,
           })
@@ -85,7 +85,7 @@ export default {
     del(index) {
       axios
         .delete(
-          "https://boiling-garden-97099.herokuapp.com/api/shares/" +
+          "https://fierce-lake-14215.herokuapp.com/api/shares/" +
             this.shares[index].item.id
         )
         .then((response) => {
@@ -99,12 +99,12 @@ export default {
     async getShares() {
       let data = [];
       const shares = await axios.get(
-        "http://localhost:8000/api/shares"
+        "https://fierce-lake-14215.herokuapp.com/api/shares"
       );
       for (let i = 0; i < shares.data.data.length; i++) {
         await axios
           .get(
-            "https://boiling-garden-97099.herokuapp.com/api/shares/" +
+            "https://fierce-lake-14215.herokuapp.com/api/shares/" +
               shares.data.data[i].id
           )
           .then((response) => {
